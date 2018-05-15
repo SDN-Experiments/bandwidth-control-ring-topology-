@@ -1,0 +1,23 @@
+curl -X POST -d '{"address":"1.1.1.100/30"}' http://localhost:8080/router/0000000000000001
+curl -X POST -d '{"address":"192.168.10.10/30"}' http://localhost:8080/router/0000000000000001
+
+curl -X POST -d '{"address":"2.2.2.100/30"}' http://localhost:8080/router/0000000000000002
+curl -X POST -d '{"address":"192.168.10.20/30"}' http://localhost:8080/router/0000000000000002
+
+curl -X POST -d '{"address":"3.3.3.100/30"}' http://localhost:8080/router/0000000000000003
+curl -X POST -d '{"address":"192.168.10.30/30"}' http://localhost:8080/router/0000000000000003
+
+curl -X POST -d '{"gateway": "192.168.10.20"}' http://localhost:8080/router/0000000000000001
+
+curl -X POST -d '{"gateway": "192.168.10.30"}' http://localhost:8080/router/0000000000000002
+
+curl -X POST -d '{"gateway": "192.168.10.10"}' http://localhost:8080/router/0000000000000003
+
+curl -X POST -d '{"destination": "2.2.2.0/30", "gateway": "192.168.10.20"}'
+http://localhost:8080/router/0000000000000001
+
+curl -X POST -d '{"destination": "3.3.3.0/30", "gateway": "192.168.10.30"}'
+http://localhost:8080/router/0000000000000002
+
+curl -X POST -d '{"destination": "1.1.1.0/30", "gateway": "192.168.10.10"}'
+http://localhost:8080/router/0000000000000003

@@ -1,0 +1,10 @@
+sudo ovs-vsctl set Bridge s2 protocols=OpenFlow13
+sudo ovs-vsctl set-manager ptcp:6632
+
+sudo  ovs-vsctl set Bridge s1 protocols=OpenFlow13
+sudo ovs-vsctl set-manager ptcp:6632
+
+sudo ovs-vsctl set Bridge s3 protocols=OpenFlow13
+sudo ovs-vsctl set-manager ptcp:6632
+
+ryu-manager ryu.app.rest_router --verbose
